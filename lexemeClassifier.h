@@ -4,13 +4,13 @@ gathered from the code. It recognizes which lexeme it stands for
 and update the counter according to this recognition.
 */
 
-void lexemeClassifier(tokens theCounter, char *lexeme){
+void lexemeClassifier(tokens *theCounter, char *lexeme){
 	if(isReservedWord(lexeme)){
-		theCounter.reservedWord++;
-		return
+		theCounter->reservedWord = +1;
+		return;
 	}
-	if(isIdentifier(lexeme)){
+	/*if(isIdentifier(lexeme)){
 		theCounter.identifier++;
 		return
-	}
+	}*/
 }
