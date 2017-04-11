@@ -1,6 +1,9 @@
 //Struct definition
 
 typedef struct{
-	int identifier;
-	int reservedWord;
+	int identifierCount;
+	int keywordCount;
+	int delimiterCount;
+	int operatorCount;
+	int literalCount;
 }tokens;
