@@ -6,23 +6,19 @@ and update the counter according to this recognition.
 
 void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
 	//local variables
-	char aux[2];
+	char strLexemeChar[2];
 	
 	//statements
-	aux[0] = lexemeChar;
-	aux[1] = '\0';
+	strLexemeChar[0] = lexemeChar;
+	strLexemeChar[1] = '\0';
 
 	if(lexemeChar >= 'a' && lexemeChar <= 'z'){
-		strcat(container, aux);	
+		strcat(container, strLexemeChar);	
 	}
-	else if(isOperator(aux)){
+	else if(isOperator(strLexemeChar)){
 		theCounter->operatorCount++;
 	}
-	else if(	lexemeChar == ' ' ||
-				lexemeChar == ';' ||
-				lexemeChar == ':' ||
-				lexemeChar == '(' ||
-				lexemeChar == ')' ){
+	else if(isDelimiter(strLexemeChar)){
 
 		theCounter->delimiterCount++;
 
