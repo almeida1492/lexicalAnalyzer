@@ -7,18 +7,25 @@ and update the counter according to this recognition.
 void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
 
 	if(lexemeChar >= 'a' && lexemeChar <= 'z'){
-		container = container + lexemeChar;
+		char aux[2];
+		aux[0] = lexemeChar;
+		aux[1] = '\0';
+
+
+		strcat(container, aux);
+		printf("%s\n", container);
 	}
 	else if(	lexemeChar == ' ' || 
 				lexemeChar == ';' ||
 				lexemeChar == '(' ||
 				lexemeChar == ')' ){
 
-		theCounter->delimiterCount = +1;
+		theCounter->delimiterCount++;
 
 		if(isKeyword(container)){
-			theCounter->keywordCount = +1;
+			theCounter->keywordCount++;
 			return;
 		}
+		strcpy(container, "");
 	}
 }

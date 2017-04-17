@@ -22,13 +22,13 @@ int main(){
 		while((lexemeChar = fgetc(file)) != EOF){
 			lexemeClassifier(theCounter, lexemeChar, container);
 		}
-		fclose(file);
-
+		
 		printf("\n	- Reserved:		%i\n", theCounter->keywordCount);
 		printf("	- Identifiers:		%i\n", theCounter->identifierCount);
 		printf("	- Delimiters:		%i\n", theCounter->delimiterCount);
 		printf("	- Operators:		%i\n", theCounter->operatorCount);
 		printf("	- Literals:		%i\n", theCounter->literalCount);
 	}
+	fclose(file);
 	return 0;
 }
