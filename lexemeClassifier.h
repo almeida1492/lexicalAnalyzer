@@ -14,9 +14,14 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
 
 	if(lexemeChar >= 'a' && lexemeChar <= 'z'){
 		strcat(container, strLexemeChar);	
+		if(strcmp(container, "begin") == 0){ //treats the begin exception
+			theCounter->keywordCount++;
+			strcpy(container, "");
+		}
 	}
 	else if(isOperator(strLexemeChar)){
 		theCounter->operatorCount++;
+		strcpy(container, "");
 	}
 	else if(isDelimiter(strLexemeChar)){
 
@@ -24,6 +29,9 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
 
 		if(isKeyword(container)){
 			theCounter->keywordCount++;
+		}
+		else{
+			theCounter->identifierCount++;
 		}
 		strcpy(container, "");
 	}

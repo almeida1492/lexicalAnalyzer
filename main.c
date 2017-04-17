@@ -32,3 +32,9 @@ int main(){
 	fclose(file);
 	return 0;
 }
+
+// Reserved: 7
+// Identifiers: 7
+// Delimiters: 11
+// Operators: 3
+// Literals: 0
