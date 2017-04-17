@@ -5,18 +5,22 @@ and update the counter according to this recognition.
 */
 
 void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
+	//local variables
+	char aux[2];
+	
+	//statements
+	aux[0] = lexemeChar;
+	aux[1] = '\0';
 
 	if(lexemeChar >= 'a' && lexemeChar <= 'z'){
-		char aux[2];
-		aux[0] = lexemeChar;
-		aux[1] = '\0';
-
-
-		strcat(container, aux);
-		printf("%s\n", container);
+		strcat(container, aux);	
 	}
-	else if(	lexemeChar == ' ' || 
+	else if(isOperator(aux)){
+		theCounter->operatorCount++;
+	}
+	else if(	lexemeChar == ' ' ||
 				lexemeChar == ';' ||
+				lexemeChar == ':' ||
 				lexemeChar == '(' ||
 				lexemeChar == ')' ){
 
@@ -24,8 +28,9 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
 
 		if(isKeyword(container)){
 			theCounter->keywordCount++;
-			return;
 		}
 		strcpy(container, "");
 	}
+	printf("%s\n", container);
+	return;	
 }
