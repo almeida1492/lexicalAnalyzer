@@ -33,14 +33,11 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
 
 		theCounter->delimiterCount++;
 
-		if(isKeyword(container, theCounter, file)){
-			theCounter->keywordCount++;
-		}
-		else{
+		if(!isKeyword(container, theCounter, file)){
 			theCounter->identifierCount++;
+			strcat(container, strLexemeChar);
+			fprintf(file, "%s ", container);
 		}
-		strcat(container, strLexemeChar);
-		fprintf(file, "%s ", container);
 		strcpy(container, "");
 	}
 	printf("%s\n", container);
