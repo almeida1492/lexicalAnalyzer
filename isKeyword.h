@@ -3,7 +3,12 @@ This function verifies if the input is a token of the type identifier.
 Then it returns true if it procedes, false otherwise
 */
 
-bool isKeyword(char *lexeme){	
+bool isKeyword(char *lexeme, tokens *theCounter, FILE *file){	
+
+	if (strcmp(lexeme, "program") == 0){
+		theCounter->keywordCount++;
+		fprintf(file, "t_program ");
+	}
 	if (strcmp(lexeme, "program")	== 0	||
 		strcmp(lexeme, "var")		== 0	||
 		strcmp(lexeme, "begin")		== 0	||

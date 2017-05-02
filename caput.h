@@ -12,7 +12,7 @@
 
 
 //prototypes
-bool 	isKeyword			(char *lexeme); 
+bool 	isKeyword			(char *lexeme, tokens *theCounter, FILE *file); 
 bool 	isOperator			(char *lexeme);
 bool 	isDelimiter			(char *lexem);
 /*bool 	isIdentifier		(char *lexeme);*/
