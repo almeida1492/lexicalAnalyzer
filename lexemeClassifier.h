@@ -20,7 +20,7 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container, FILE
 		strcat(container, strLexemeChar);	
 		if(strcmp(container, "begin") == 0){ //treats the begin exception
 			theCounter->keywordCount++;
-			fprintf(file, "%s ", container);
+			fprintf(file, "t_begin ");
 			strcpy(container, "");
 		}
 	}
@@ -34,7 +34,7 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container, FILE
 		}
 		if(strcmp(strLexemeChar, "+") == 0){
 			op_aux = fgetc(input);
-			fprintf(file, "t_plus ");
+			fprintf(file, "t_plus");
 		}
 		strcpy(container, "");
 	}
@@ -59,7 +59,5 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container, FILE
 
 // t_program soma t_pv t_var z t_dp t_integer t_pv t_begin z t_at x t_pv t_loop y t_pv z t_at z 
 // t_plus t_pv t_end t_pv t_end t_pv
-
-
 
 
