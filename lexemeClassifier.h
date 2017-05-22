@@ -38,8 +38,14 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
 		if(strcmp(strLexemeChar, ";") == 0){
 			fprintf(file, "t_pv ");
 		}
+		if(strcmp(strLexemeChar, ":") == 0){
+			fprintf(file, "t_dp ");
+		}
 		strcpy(container, "");
 	}
 	printf("%s\n", container);
 	return;	
 }
+
+
+// t_program soma t_pv t_var z t_dp t_integer t_pv t_begin z t_at x t_pv t_loop y t_pv z t_at z t_plus t_pv t_end t_pv t_end t_pv
