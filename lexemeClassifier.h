@@ -4,10 +4,11 @@ gathered from the code. It recognizes which lexeme it stands for
 and update the counter according to this recognition.
 */
 
-void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
+void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container, FILE *input){
 	//local variables
 	FILE *file;
 	char strLexemeChar[2];
+	char op_aux;
 	
 	//statements
 	file = fopen("output.txt", "a");
@@ -25,8 +26,16 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
 	}
 	else if(isOperator(strLexemeChar)){
 		theCounter->operatorCount++;
-		strcat(container, strLexemeChar);
+
 		fprintf(file, "%s ", container);
+		if(strcmp(strLexemeChar, "<") == 0){
+			op_aux = fgetc(input);
+			fprintf(file, "t_at ");
+		}
+		if(strcmp(strLexemeChar, "+") == 0){
+			op_aux = fgetc(input);
+			fprintf(file, "t_plus ");
+		}
 		strcpy(container, "");
 	}
 	else if(isDelimiter(strLexemeChar, theCounter)){
@@ -48,4 +57,9 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
 }
 
 
-// t_program soma t_pv t_var z t_dp t_integer t_pv t_begin z t_at x t_pv t_loop y t_pv z t_at z t_plus t_pv t_end t_pv t_end t_pv
+// t_program soma t_pv t_var z t_dp t_integer t_pv t_begin z t_at x t_pv t_loop y t_pv z t_at z 
+// t_plus t_pv t_end t_pv t_end t_pv
+
+
+
+

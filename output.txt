@@ -1,1 +1,1 @@
-t_program soma t_pv t_var z t_dp t_integer t_pv begin z- x t_pv t_loop y t_pv z- z+  t_pv t_end t_pv t_end t_pv 
+t_program soma t_pv t_var z t_dp t_integer t_pv begin z t_at x t_pv t_loop y t_pv z t_at z t_plus  t_pv t_end t_pv t_end t_pv 

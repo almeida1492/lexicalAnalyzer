@@ -20,7 +20,7 @@ int main(){
 
 	if(file){
 		while((lexemeChar = fgetc(file)) != EOF){
-			lexemeClassifier(theCounter, lexemeChar, container);
+			lexemeClassifier(theCounter, lexemeChar, container, file);
 		}
 		
 		printf("\n	- Reserved:		%i\n", theCounter->keywordCount);
