@@ -29,14 +29,14 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container){
 		fprintf(file, "%s ", container);
 		strcpy(container, "");
 	}
-	else if(isDelimiter(strLexemeChar)){
-
-		theCounter->delimiterCount++;
+	else if(isDelimiter(strLexemeChar, theCounter)){
 
 		if(!isKeyword(container, theCounter, file)){
 			theCounter->identifierCount++;
-			strcat(container, strLexemeChar);
 			fprintf(file, "%s ", container);
+		}
+		if(strcmp(strLexemeChar, ";") == 0){
+			fprintf(file, "t_pv ");
 		}
 		strcpy(container, "");
 	}

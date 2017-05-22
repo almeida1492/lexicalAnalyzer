@@ -14,6 +14,6 @@
 //prototypes
 bool 	isKeyword			(char *lexeme, tokens *theCounter, FILE *file); 
 bool 	isOperator			(char *lexeme);
-bool 	isDelimiter			(char *lexem);
+bool 	isDelimiter			(char *lexeme, tokens *theCounter);
 /*bool 	isIdentifier		(char *lexeme);*/
 void 	lexemeClassifier	(tokens *theCounter, char lexemeChar, char *container);
