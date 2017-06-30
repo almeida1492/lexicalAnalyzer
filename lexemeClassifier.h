@@ -27,14 +27,14 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container, FILE
 	else if(isOperator(strLexemeChar)){
 		theCounter->operatorCount++;
 
-		fprintf(file, "%s ", container);
+		fprintf(file, "t_id ");
 		if(strcmp(strLexemeChar, "<") == 0){
 			op_aux = fgetc(input);
 			fprintf(file, "t_at ");
 		}
 		if(strcmp(strLexemeChar, "+") == 0){
 			op_aux = fgetc(input);
-			fprintf(file, "t_plus");
+			fprintf(file, "t_plus ");
 		}
 		strcpy(container, "");
 	}
@@ -42,7 +42,7 @@ void lexemeClassifier(tokens *theCounter, char lexemeChar, char *container, FILE
 
 		if(!isKeyword(container, theCounter, file)){
 			theCounter->identifierCount++;
-			fprintf(file, "%s ", container);
+			fprintf(file, "t_id ");
 		}
 		if(strcmp(strLexemeChar, ";") == 0){
 			fprintf(file, "t_pv ");
